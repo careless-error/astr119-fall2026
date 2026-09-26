@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Operating system clutter
+.DS_Store
+Thumbs.db
+
+# Personal editor and agent settings (the shared ones are committed)
+.claude/settings.local.json
+.vscode/*
+!.vscode/extensions.json
+
+# Large files you should not commit
+*.fits
+*.zip

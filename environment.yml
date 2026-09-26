@@ -1,0 +1,29 @@
+# ASTR-119 Fall 2026 course environment
+#
+# Create:   conda env create -f environment.yml
+# Activate: conda activate astr119
+# Update:   conda env update -f environment.yml --prune
+#
+# Version 2026-09-26. Pins are to be set after a clean test install on one Mac
+# and one Windows machine. Packages for the SLM unit are commented out until
+# that unit's scope is decided (fall-2026/decisions.md, D3).
+
+name: astr119
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - matplotlib
+  - pandas
+  - astropy
+  - requests
+  - jupyter
+  - jupyterlab
+  - ipython
+  - pip
+  # SLM unit (uncomment once D3 is decided; CPU-only torch is enough)
+  # - pytorch-cpu
+  # - pip:
+  #   - sentence-transformers

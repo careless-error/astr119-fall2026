@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "disableBypassPermissionsMode": "disable",
+    "deny": [
+      "Edit(CLAUDE.md)",
+      "Write(CLAUDE.md)",
+      "Edit(.claude/**)",
+      "Write(.claude/**)",
+      "Bash(rm -rf:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(git checkout -- :*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout -b:*)",
+      "Bash(git switch -c:*)"
+    ],
+    "ask": [
+      "Bash(pip install:*)",
+      "Bash(conda install:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
