@@ -7,18 +7,18 @@ This is your working folder for ASTR-119, Introduction to Scientific Computing, 
 | Folder or file | What it is for |
 |---|---|
 | `module-1/` | Setup and first scripts (Sep 24 to Oct 8). Your comet script, `quadratic.py`, HW1. **AI-free.** |
-| `module-2/` | Loops, lists, functions (Oct 13 to 22). Pod work on exoplanet temperatures, HW2. |
-| `module-3/` | numpy arrays and tables (Oct 27 to Nov 5). HW3, the pixel fixer, with its test images. |
-| `module-4/` | Plotting and fitting (Nov 10 to 19). HW4, HW5 with the MaNGA galaxy catalog. |
-| `module-5/` | How a language model works (Nov 24 to Dec 3). Files arrive later. |
-| `project/` | Your final project: proposal, code, report, AI-use log. |
-| `data/` | Shared data sets added during the quarter. |
+| `module-2/` | Loops, lists, functions. Added the week of Oct 12. |
+| `module-3/` | numpy arrays and tables. Added the week of Oct 26. |
+| `module-4/` | Plotting and fitting. Added the week of Nov 9. |
+| `module-5/` | How a language model works. Added the week of Nov 23. |
+| `project/` | Your final project. Added when proposals open, the week of Nov 2. |
+| `data/` | Shared data sets, if any are needed. |
 | `docs/` | The Protocol on one page, the AI-use note template, how to export a transcript. |
 | `environment.yml` | The list of Python packages the course uses. The setup guide used it to build the `astr119` environment. |
 | `CLAUDE.md` | Rules the AI agent follows in this repository. Read it; do not edit it. |
 | `.claude/settings.json` | Permission settings for the agent. Do not edit it. |
 
-Each module folder has a README saying what goes in it and which starter files it contains. Starter files are named `*_starter.py`. Copy a starter to the name the assignment asks for (`poke_starter.py` to `poke.py`), and work on the copy, so you can always go back to the original.
+Folders for later modules appear in this repository when we reach them. Run `git pull` at the start of each week to receive them. Each module folder has a README saying what goes in it and which starter files it contains. Starter files are named `*_starter.py`. Copy a starter to the name the assignment asks for (`poke_starter.py` to `poke.py`), and work on the copy, so you can always go back to the original.
 
 ## The four git commands
 
