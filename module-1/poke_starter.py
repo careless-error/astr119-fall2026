@@ -2,7 +2,7 @@
 # ASTR119
 # poke.py
 # Calculates number of bytes read from a URL and the download rate in MB/s
-#Run with: python poke.py
+# Run with: python poke.py
 
 import requests
 import time
