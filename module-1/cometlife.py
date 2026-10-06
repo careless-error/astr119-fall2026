@@ -1,9 +1,13 @@
+# cometlife.py
+# estimates the mass and radius a comet loses per orbit due to sublimation of ice
+# Run with: python cometlife.py
+
 import numpy as np
 
 #CONSTANTS
 L = float(3.8e26) #luminosity of sun in watts J/s
 GM = float(1.3271e20) #gravity * mass of sun
-R = float(2000) #radius of comet in m
+R = float(input("Enter the comet's radius in meters: ")) #radius of comet in m
 h = float(2.5e6) #latent heat sublimation J/Kg
 p = float(500) #density of comet in kg/m^3
 A = float(0) #albedo of comet
@@ -13,7 +17,7 @@ e = float(0.5) #eccentricity of comet
 pi = float(np.pi) #pi
 
 V = (4/3) * pi * R**3 #volume of comet
-M = p * V #mass of comet
+M = p * V #mass of comet (not used in calculations)
 
 H_sol = (pi/2) * (1-A) * R**2 * L / (np.sqrt(GM * a * (1-e**2))) # Joules
 
