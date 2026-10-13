@@ -9,7 +9,7 @@ GM = 1.3271e20      # G times the Sun's mass, m^3/s^2
 h_ice = 2.5e6       # energy to sublimate 1 kg of ice, J/kg
 AU = 1.49e11        # meters per AU
 
-R = float(sys.argv[1])          # comet radius, m (2 km)
+R = float(sys.argv[1]) * 1000          # comet radius, m (2 km)
 rho = 500.0         # comet density, kg/m^3
 A = 0.0             # albedo
 a = 3.12 * AU       # semi-major axis, m
