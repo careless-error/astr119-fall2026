@@ -13,7 +13,7 @@ def add_mars():
 
 
 bump()
-bump()
+bump() 
 add_mars()
 print(count)
 print(names)
