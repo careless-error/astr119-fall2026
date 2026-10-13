@@ -7,7 +7,7 @@ import numpy as np
 #CONSTANTS
 L = float(3.8e26) #luminosity of sun in watts J/s
 GM = float(1.3271e20) #gravity * mass of sun
-R = float(input("Enter the comet's radius in meters: ")) #radius of comet in m
+R = float(2000) #radius of comet in m
 h = float(2.5e6) #latent heat sublimation J/Kg
 p = float(500) #density of comet in kg/m^3
 A = float(input("Enter the comet's albedo: ")) #albedo of comet
