@@ -18,11 +18,6 @@ def t_eq(L, d):
     """
     T_eq = ( L / (16 * np.pi * SIGMA * d**2) )**(1/4)
 
-
-    # TODO(human):
-    #   1. Compute the denominator 16 * pi * SIGMA * d**2 (use np.pi).
-    #   2. Divide L by it. What are the units of this ratio?
-    #   3. Take the fourth root and return the result.
     return T_eq
 
 planets = [   # name, luminosity (solar units), distance (AU)
@@ -39,10 +34,11 @@ planets = [   # name, luminosity (solar units), distance (AU)
 ]
 
 if __name__ == '__main__':
-    L = float(sys.argv[1])
-    d = float(sys.argv[2])
-    T = t_eq(L, d)
-    print(f"T_eq = {T:.1f} K")
+    if len(sys.argv) == 3:
+        L = float(sys.argv[1]) * L_SUN   # solar luminosities -> W
+        d = float(sys.argv[2]) * AU      # AU -> m
+        T = t_eq(L, d)
+        print(f"T_eq = {T:.1f} K")
 
     for i in range(len(planets)):
         name = planets[i][0]
