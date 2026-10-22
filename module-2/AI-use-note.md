@@ -41,3 +41,6 @@ claude output:
 # Part 2 multitab.py
     I wrote teh loop by myself and only asked claude to check my work. No issues found
 
+# my fork
+    https://github.com/careless-error/astr119-fall2026
+    No issues pushing to my fork
