@@ -25,3 +25,4 @@ if __name__ == "__main__":
     for i in range(len(name)):
         T = t_eq(lum[i] * L_SUN, dist_au[i] * AU)
         print(f"{name[i]:14s} {T:7.1f} K")
+
