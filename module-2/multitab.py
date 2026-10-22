@@ -16,11 +16,10 @@ def multitab(n):
     """
     assert (type(n) is int) and (n > 0), "n must be positive integer"
 
-    ### THIS IS WHERE YOU COME IN
-    ### USE AS MANY LINES AS YOU NEED
-    ### USE A FOR LOOP OR WHILE LOOP, WHICHEVER YOU LIKE
-    ### YOU WILL PROBABLY NEED TO LOOK UP SOME THINGS
-    ### YOU WILL DISCOVER A USEFUL OPTIONAL PARAMETER TO THE FUNCTION PRINT()
+    for row in range(1, n+1):                 #loop through rows 1 to n
+        for col in range(1, n+1):             #loop through columns 1 to n
+            print(f"{row*col:4d}", end="")    #multiply row and column, 4 char wide, no newline
+        print()                                #newline after each row
 
     return None
 

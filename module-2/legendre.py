@@ -27,12 +27,19 @@ def legpoly(n,x):
     assert (type(n) is int) and (n >= 0), "n must be nonnegative integer"
     assert (x >= -1) and (x <= 1), "x must be in [-1,1]" 
 
-    # Calculate P_n(x)
-    ### THIS IS WHERE YOU COME IN
-    ### USE AS MANY LINES AS YOU NEED
-    ### USE A FOR LOOP OR WHILE LOOP, WHICHEVER YOU LIKE
-    y = None
-    ###
+    # Calculate P_n(x) - compute P_n(x) with a loop, no recursive calls.
+    p_prev = 1.0
+    p_curr = x
+
+    for k in range(1, n):
+        p_next = ((2*k + 1) * x * p_curr - k * p_prev) / (k + 1)
+        p_prev = p_curr
+        p_curr = p_next
+
+    if n == 0:
+        y = p_prev
+    else:
+        y = p_curr
 
     return y
 
