@@ -4,9 +4,11 @@ TERMINAL SHORTCUTS (defined in ~/.zshrc)
 - astr119: go to ~/astr119 and activate the astr119 conda environment
 - gsync "message": add, commit, pull from the class repo, push to my fork
 
-ADDING THE SHORTCUTS (on a new computer)
-1. In the terminal, run:  open -e ~/.zshrc
-2. Paste these lines at the very bottom:
+SETTING UP (on a new computer)
+1. Download my fork (this connects it as origin):
+    git clone https://github.com/careless-error/astr119-fall2026 ~/astr119
+2. In the terminal, run:  open -e ~/.zshrc
+3. Paste these lines at the very bottom:
 
     alias astr119='cd ~/astr119 && conda activate astr119'
 
@@ -16,8 +18,9 @@ ADDING THE SHORTCUTS (on a new computer)
       git pull --no-rebase --no-edit upstream main && git push
     }
 
-3. Save with Cmd+S, then in the terminal run:  source ~/.zshrc
-4. One time only, connect the class repo:
+4. Save with Cmd+S, then in the terminal run:  source ~/.zshrc
+5. Connect the class repo (this connects it as upstream):
+    cd ~/astr119
     git remote add upstream https://github.com/kbundy/astr119-fall2026
 
 STARTING AN ASSIGNMENT
