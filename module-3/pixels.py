@@ -1,7 +1,7 @@
 # pixels.py -- an image is an array (Pod 5). 
 # Run from the repository folder:  python module-3/pixels.py
 import numpy as np
-from matplotlib.pyplot import imread, imsave
+from matplotlib.pyplot import imread, imsave, imshow, show, axis
 
 I = imread("module-3/clean_io_small.png")     # rows, columns, 3 colour channels; values 0.0 to 1.0
 J = I.copy()
@@ -30,4 +30,20 @@ if __name__ == "__main__":
     print("shape:", I.shape)
     print(I.size)
     print(I[0, 0])  # first pixel, top left
-    print(I[356, 349])  # last pixel, bottom right 
+    print(I[356, 349])  # last pixel, bottom right
+
+#ask user to open an image from the this script
+
+    files = ["module-3/clean_io_small.png", "module-3/pixels.png",
+             "module-3/pixels_inverted.png", "module-3/pixels_vignette.png"]  # images this script reads or saves
+    while True:
+        for i, name in enumerate(files, start=1):
+            print(f"{i}. {name.split('/')[-1]}")  # show only the file name, not the folder
+        choice = int(input("Which image do you want to print? "))
+        imshow(imread(files[choice - 1]))  # choice - 1 because lists start at 0
+        axis("off")  # hide the axes and tick numbers
+        print("Close the image window to continue.")
+        show()  # waits here until the window is closed
+        again = input("Show another image? (Y/N) ")
+        if again.strip().upper() != "Y":  # anything but Y or y ends the loop
+            break
