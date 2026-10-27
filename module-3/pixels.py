@@ -12,6 +12,19 @@ imsave("module-3/pixels.png", J)  # save modified image
 N = 1-I #invert the image
 imsave("module-3/pixels_inverted.png", N)  # save modified image
 
+K = I.copy()
+ny, nx = I.shape[:2]  # number of rows, number of columns
+y = np.arange(ny)[:, np.newaxis]  # row numbers as a column, shape (ny, 1)
+x = np.arange(nx)[np.newaxis, :]  # column numbers as a row, shape (1, nx)
+dist = np.sqrt((x - nx/2)**2 + (y - ny/2)**2)  # distance from centre, shape (ny, nx)
+r = 250  # radius of the bright circle, in pixels
+
+mask = dist > r  # create a mask for pixels outside the circle dist > r returns a boolean array of shape (ny, nx) with True for pixels outside the circle and False for pixels inside the circle
+
+K[mask, :] *= .9  # darken pixels outside the circle
+
+imsave("module-3/pixels_vignette.png", K)  # save modified image
+
 
 if __name__ == "__main__":
     print("shape:", I.shape)
