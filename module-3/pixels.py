@@ -32,10 +32,9 @@ if __name__ == "__main__":
     print(I[0, 0])  # first pixel, top left
     print(I[356, 349])  # last pixel, bottom right
 
-#ask user to open an image from the this script
-
+    # ask user if they want to open an image from the this script
     files = ["module-3/clean_io_small.png", "module-3/pixels.png",
-             "module-3/pixels_inverted.png", "module-3/pixels_vignette.png"]  # images this script reads or saves
+             "module-3/pixels_inverted.png", "module-3/pixels_vignette.png"]  #images this script reads or saves
     while True:
         for i, name in enumerate(files, start=1):
             print(f"{i}. {name.split('/')[-1]}")  # show only the file name, not the folder
