@@ -39,7 +39,7 @@ if __name__ == "__main__":
     ax.scatter(dist, T)
 
     #step 4: annotate each planet with its name
-    for n, x, y in zip(name, dist, T): ax.annotate(n, (x, y), fontsize=7)
+    for n, x, y in zip(name, dist, T): ax.annotate(n, (x, y), xytext=(6, 4), textcoords="offset points", fontsize=7)
 
     # SUN-LIKE STAR EQUILIBRIUM TEMPERATURE CURVE (step 2)
     d = np.linspace(0.01, 2.0, 200)
