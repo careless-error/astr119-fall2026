@@ -21,6 +21,12 @@ def t_eq(L, d):
 if __name__ == "__main__":
     T = t_eq(lum * L_SUN, dist * AU)
     fig, ax = plt.subplots()
+
+    #step 1 x axis is distance in AU, y axis is equilibrium temperature in K
+    ax.set_xlabel("Distance (AU)") 
+    ax.set_ylabel("Equilibrium Temperature (K)")
+    plt.title("Ten planets: Equilibrium Temperature vs Distance") #Title
+
     ax.scatter(dist, T)
     fig.savefig("module-4/planets.png", dpi=150)
     print("wrote module-4/planets.png")
