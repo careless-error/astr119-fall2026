@@ -16,10 +16,7 @@ name = np.array(["Earth", "Mars", "HD 209458 b", "51 Peg b", "TRAPPIST-1 e",
 lum = np.array([1.0, 1.0, 1.6, 1.3, 0.00055, 0.79, 0.58, 0.34, 1.2, 0.0016])        # star luminosity, solar units
 dist = np.array([1.000, 1.524, 0.047, 0.052, 0.029, 0.85, 0.0154, 0.031, 1.046, 0.0485])   # distance, AU
 
-# SUN-LIKE STAR EQUILIBRIUM TEMPERATURE CURVE
-d = np.linspace(0.01, 2.0, 200)
-T_curve = t_eq(L_SUN, d * AU)
-#the planets should not be on this temperature curve, but they should be below it. the planets with the smallest distances will be closest to the curve.
+
 
 # FUNCTIONS
 def t_eq(L, d):
@@ -37,6 +34,10 @@ if __name__ == "__main__":
     ax.set_ylabel("Equilibrium Temperature (K)")
     plt.title("Ten planets: Equilibrium Temperature vs Distance") #Title
     ax.scatter(dist, T)
+    # SUN-LIKE STAR EQUILIBRIUM TEMPERATURE CURVE
+    d = np.linspace(0.01, 2.0, 200)
+    T_curve = t_eq(L_SUN, d * AU)
+    #the planets should not be on this temperature curve, but they should be below it. the planets with the smallest distances will be closest to the curve depending on how bright the plantet's star is.
     ax.plot(d, T_curve, color='red', linestyle='--', label='Sun-like star') # Plot the sun-like star equilibrium temperature curve
     fig.savefig("module-4/planets.png", dpi=150)
     print("wrote module-4/planets.png")
