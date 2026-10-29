@@ -36,10 +36,10 @@ if __name__ == "__main__":
     #step 3: use log scale for both axes
     ax.set_xscale("log")
     ax.set_yscale("log")
-    ax.scatter(dist, T)
 
-    #step 4: annotate each planet with its name
-    for n, x, y in zip(name, dist, T): ax.annotate(n, (x, y), xytext=(6, 4), textcoords="offset points", fontsize=7)
+    #step 4: plot each planet as its own point so it gets its own color and legend entry
+    for n, x, y in zip(name, dist, T):
+        ax.scatter(x, y, label=n)
 
     # SUN-LIKE STAR EQUILIBRIUM TEMPERATURE CURVE (step 2)
     d = np.linspace(0.01, 2.0, 200)
@@ -48,6 +48,7 @@ if __name__ == "__main__":
     #T scales as L^(1/4), so the distance from the curve depends only on the star's luminosity, not on distance.
 
     ax.plot(d, T_curve, color='red', linestyle='--', label='Sun-like star') # Plot the sun-like star equilibrium temperature curve
+    ax.legend(fontsize=7)
 
     fig.savefig("module-4/planets.png", dpi=150)
     print("wrote module-4/planets.png")
