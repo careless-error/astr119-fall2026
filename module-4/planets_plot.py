@@ -17,12 +17,10 @@ lum = np.array([1.0, 1.0, 1.6, 1.3, 0.00055, 0.79, 0.58, 0.34, 1.2, 0.0016])    
 dist = np.array([1.000, 1.524, 0.047, 0.052, 0.029, 0.85, 0.0154, 0.031, 1.046, 0.0485])   # distance, AU
 
 
-
 # FUNCTIONS
 def t_eq(L, d):
     """Equilibrium temperature (K) at distance d (m) from a star of luminosity L (W)."""
     return (L / (16 * np.pi * SIGMA * d**2)) ** 0.25
-
 
 # MAIN: COMPUTE TEMPERATURES AND PLOT
 if __name__ == "__main__":
@@ -47,7 +45,12 @@ if __name__ == "__main__":
     #planets with L = 1 L_sun (Earth, Mars) lie on this curve; brighter stars put planets above it, dimmer ones below.
     #T scales as L^(1/4), so the distance from the curve depends only on the star's luminosity, not on distance.
 
-    ax.plot(d, T_curve, color='red', linestyle='--', label='Sun-like star') # Plot the sun-like star equilibrium temperature curve
+    # STAR W/ HALF SUN LUMINOSITY CURVE (TASK 2)
+    T_curve_half = t_eq(0.5 * L_SUN, d * AU)
+    
+    ax.plot(d, T_curve, color='gold', linestyle='--', label='Sun-like star Luminosity') # curve for a star with Sun-like luminosity
+    ax.plot(d, T_curve_half, color='darkorange', linestyle='--', label='Half Sun luminosity') # curve for a star with half the Sun's luminosity
+    
     ax.legend(fontsize=7)
 
     fig.savefig("module-4/planets.png", dpi=150)
