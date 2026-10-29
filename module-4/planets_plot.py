@@ -25,35 +25,33 @@ def t_eq(L, d):
 
 # MAIN: COMPUTE TEMPERATURES AND PLOT
 if __name__ == "__main__":
-    T = t_eq(lum * L_SUN, dist * AU) # compute equilibrium temperatures for each planet
-    plt.style.use("dark_background")    # dark plot background with white text and axes
+    # COMPUTE
+    T = t_eq(lum * L_SUN, dist * AU)            # planet equilibrium temperatures
+    d = np.linspace(0.01, 2.0, 200)              # distances for the reference curves, AU
+    T_curve = t_eq(L_SUN, d * AU)                # Sun-like star
+    T_curve_half = t_eq(0.5 * L_SUN, d * AU)     # star with half the Sun's luminosity
+    
+    # planets with L = 1 L_sun (Earth, Mars) lie on the Sun curve; brighter stars put planets above it, dimmer ones below.
+    # T scales as L^(1/4), so the distance from a curve depends only on the star's luminosity, not on distance.
+
+    # SET UP FIGURE
+    plt.style.use("dark_background")
     fig, ax = plt.subplots()
 
-    #step 1 x axis is distance in AU, y axis is equilibrium temperature in K
-    ax.set_xlabel("Distance (AU)") 
-    ax.set_ylabel("Equilibrium Temperature (K)")
-    plt.title("Ten planets: Equilibrium Temperature vs Distance") #Title
-    #step 3: use log scale for both axes
+    # PLOT
+    for n, x, y in zip(name, dist, T):           # each planet separately so it gets its own color and legend entry
+        ax.scatter(x, y, label=n)
+    ax.plot(d, T_curve, color='gold', linestyle='--', label='Sun-like star Luminosity')
+    ax.plot(d, T_curve_half, color='darkorange', linestyle='--', label='Half Sun luminosity')
+
+    # LABELS AND SCALES
     ax.set_xscale("log")
     ax.set_yscale("log")
-
-    #step 4: plot each planet as its own point so it gets its own color and legend entry
-    for n, x, y in zip(name, dist, T):
-        ax.scatter(x, y, label=n)
-
-    # SUN-LIKE STAR EQUILIBRIUM TEMPERATURE CURVE (step 2)
-    d = np.linspace(0.01, 2.0, 200)
-    T_curve = t_eq(L_SUN, d * AU)
-    #planets with L = 1 L_sun (Earth, Mars) lie on this curve; brighter stars put planets above it, dimmer ones below.
-    #T scales as L^(1/4), so the distance from the curve depends only on the star's luminosity, not on distance.
-
-    # STAR W/ HALF SUN LUMINOSITY CURVE (TASK 2)
-    T_curve_half = t_eq(0.5 * L_SUN, d * AU)
-    
-    ax.plot(d, T_curve, color='gold', linestyle='--', label='Sun-like star Luminosity') # curve for a star with Sun-like luminosity
-    ax.plot(d, T_curve_half, color='darkorange', linestyle='--', label='Half Sun luminosity') # curve for a star with half the Sun's luminosity
-    
+    ax.set_xlabel("Distance (AU)")
+    ax.set_ylabel("Equilibrium Temperature (K)")
+    ax.set_title("Ten planets: Equilibrium Temperature vs Distance")
     ax.legend(fontsize=7)
 
+    # SAVE
     fig.savefig("module-4/planets.png", dpi=150)
     print("wrote module-4/planets.png")
