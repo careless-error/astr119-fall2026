@@ -33,11 +33,21 @@ if __name__ == "__main__":
     ax.set_xlabel("Distance (AU)") 
     ax.set_ylabel("Equilibrium Temperature (K)")
     plt.title("Ten planets: Equilibrium Temperature vs Distance") #Title
+    #step 3: use log scale for both axes
+    ax.set_xscale("log")
+    ax.set_yscale("log")
     ax.scatter(dist, T)
-    # SUN-LIKE STAR EQUILIBRIUM TEMPERATURE CURVE
+
+    #step 4: annotate each planet with its name
+    for n, x, y in zip(name, dist, T): ax.annotate(n, (x, y), fontsize=7)
+
+    # SUN-LIKE STAR EQUILIBRIUM TEMPERATURE CURVE (step 2)
     d = np.linspace(0.01, 2.0, 200)
     T_curve = t_eq(L_SUN, d * AU)
-    #the planets should not be on this temperature curve, but they should be below it. the planets with the smallest distances will be closest to the curve depending on how bright the plantet's star is.
+    #planets with L = 1 L_sun (Earth, Mars) lie on this curve; brighter stars put planets above it, dimmer ones below.
+    #T scales as L^(1/4), so the distance from the curve depends only on the star's luminosity, not on distance.
+
     ax.plot(d, T_curve, color='red', linestyle='--', label='Sun-like star') # Plot the sun-like star equilibrium temperature curve
+
     fig.savefig("module-4/planets.png", dpi=150)
     print("wrote module-4/planets.png")
