@@ -4,6 +4,7 @@
 # IMPORTS
 import numpy as np
 import matplotlib.pyplot as plt
+plt.style.use("dark_background")    # dark plot background with white text and axes
 
 # PHYSICAL CONSTANTS (SI UNITS)
 SIGMA = 5.67e-8          # Stefan-Boltzmann constant, W m^-2 K^-4
@@ -24,7 +25,8 @@ def t_eq(L, d):
 
 # MAIN: COMPUTE TEMPERATURES AND PLOT
 if __name__ == "__main__":
-    T = t_eq(lum * L_SUN, dist * AU)
+    T = t_eq(lum * L_SUN, dist * AU) # compute equilibrium temperatures for each planet
+    plt.style.use("dark_background")    # dark plot background with white text and axes
     fig, ax = plt.subplots()
 
     #step 1 x axis is distance in AU, y axis is equilibrium temperature in K
