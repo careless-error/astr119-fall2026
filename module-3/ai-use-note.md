@@ -7,6 +7,10 @@ I[10,20] gives the RGB values for the pixel in row 10, col 20.
 Based on easy_corrupt_io_small.png I think there are 5000-6000 bad pixels
 
 **What I asked the agent for** (one line per request):
+ write code that finds pixels with red = 1 and greeen/blue = 0 then prints the number of corrupted pixels without changing the image
+        python pixelfixer.py easy_corrupt_io_small.png
+        Found 4840 corrupted pixels
+
 
 **What I changed by hand:**
 
