@@ -11,9 +11,12 @@ Based on easy_corrupt_io_small.png I think there are 5000-6000 bad pixels
         python pixelfixer.py easy_corrupt_io_small.png
         Found 4840 corrupted pixels
 now lets paint all identified pixels white
-        
+        all red pixels in fixed_easy_corrupt_io_small.png are now white
+now replace the each white pixels with the average value of its verical and horizonal neighbors
+    claude prompted me to write this by hand
 
 **What I changed by hand:**
+I used np.argwhere to get the indices where "bad" is True. Then created a loop to build an array of the 4 neighbors for each bad pixel. Then take the mean of the neighbors and assign it to the corresponding pixel in Iq.
 
 **One "why" I asked, and the answer in my own words:**
 

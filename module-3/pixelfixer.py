@@ -40,6 +40,18 @@ def pixelfix(I):
     # Stage 2: paint the bad pixels white in the copy
     Iq[bad] = 1
 
+    # Stage 3: replace each bad pixel with the average of its 4 neighbors
+    #use np.argwhere to get the indices where "bad" is True. then create a loop to build an array of the 4 neighbors for each bad pixel. then take the mean of the neighbors and assign it to the corresponding pixel in Iq. axis=0 calculates 3 separate averages for the R, G, and B channels.
+    for row, col in np.argwhere(bad):
+        neighbors = np.array([
+            I[row - 1, col],
+            I[row + 1, col],
+            I[row, col - 1],
+            I[row, col + 1]
+        ])
+        Iq[row, col] = neighbors.mean(axis=0)
+        
+
     return Iq
 
 
