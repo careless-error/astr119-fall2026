@@ -63,6 +63,10 @@ def pixelfix(I):
         if fixed == 0: #if no pixels were fixed in this iteration, break the loop
             break
 
+    # Check: count pure-red pixels left in the fixed image (should be 0)
+    still_bad = (Iq[:, :, 0] == 1) & (Iq[:, :, 1] == 0) & (Iq[:, :, 2] == 0)
+    print(f"Bad pixels remaining: {still_bad.sum()}")
+
     return Iq
 
 
