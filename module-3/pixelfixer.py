@@ -41,25 +41,25 @@ def pixelfix(I):
     remaining = bad.copy() # make a copy of the bad pixels to keep track of which ones are left to fix
     while remaining.any(): # while there are still bad pixels left to fix
         fixed = 0 # keep track of how many pixels we fix in this iteration
-    for row, col in np.argwhere(remaining):
-        neighbors = []
-        if row > 0:
-            neighbors.append(I[row - 1, col]) #check if pixel is on top edge
-        if row < M - 1:
-            neighbors.append(I[row + 1, col]) #check if pixel is on bottom edge
-        if col > 0:
-            neighbors.append(I[row, col - 1]) #check if pixel is on left edge
-        if col < N - 1:
-            neighbors.append(I[row, col + 1]) #check if pixel is on right edge
+        for row, col in np.argwhere(remaining):
+            neighbors = []
+            if row > 0:
+                neighbors.append(I[row - 1, col]) #check if pixel is on top edge
+            if row < M - 1:
+                neighbors.append(I[row + 1, col]) #check if pixel is on bottom edge
+            if col > 0:
+                neighbors.append(I[row, col - 1]) #check if pixel is on left edge
+            if col < N - 1:
+                neighbors.append(I[row, col + 1]) #check if pixel is on right edge
 
-        if len(neightbors) == 0:
-            continue #skip if no neighbors
-        neighbors = np.array(neighbors) #convert the list of neighbors to a numpy array
-        Iq[row, col] = neighbors.mean(axis=0)
+            if len(neighbors) == 0:
+                continue #skip if no neighbors
+            neighbors = np.array(neighbors) #convert the list of neighbors to a numpy array
+            Iq[row, col] = neighbors.mean(axis=0)
 
-        remaining[row, col] = False #mark the pixel as fixed
-        fixed += 1 #increment the number of pixels fixed in this iteration
-
+            remaining[row, col] = False #mark the pixel as fixed
+            fixed += 1 #increment the number of pixels fixed in this iteration
+            
         if fixed == 0: #if no pixels were fixed in this iteration, break the loop
             break
 

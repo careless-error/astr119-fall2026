@@ -36,3 +36,4 @@ I added a check to exclude corrupted neighboring pixels from the average and a l
 **What the agent got wrong, and how I found out** (if nothing, say what check you ran that would have caught it): The agent didn't get anything wrong. It initially had me create the np.array with the loop inside it but then recommended I change it when I needed to add the .append
 
 **What I still do not understand:**
+I'm still not sure the loop will work i every situation or how many corrupted pixels in a specific spot will cause it to fail. but it wors for these images.
