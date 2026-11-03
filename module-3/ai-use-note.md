@@ -17,8 +17,11 @@ now replace the each white pixels with the average value of its verical and hori
 
 **What I changed by hand:**
 I used np.argwhere to get the indices where "bad" is True. Then created a loop to build an array of the 4 neighbors for each bad pixel. Then take the mean of the neighbors and assign it to the corresponding pixel in Iq.
+        this worked for easy_corrupt_io_small.png
 
 **One "why" I asked, and the answer in my own words:**
+I asked why we are using np.argwhere. 
+    np.argwhere finds and indexes where a specific boolean is True. So we can use this to create an array of the neighbors of these bad pixels.
 
 **What the agent got wrong, and how I found out** (if nothing, say what check you ran that would have caught it):
 
