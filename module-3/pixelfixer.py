@@ -37,6 +37,9 @@ def pixelfix(I):
     bad = (I[:, :, 0] == 1) & (I[:, :, 1] == 0) & (I[:, :, 2] == 0)
     print(f"Found {bad.sum()} corrupted pixels")
 
+    # Stage 2: paint the bad pixels white in the copy
+    Iq[bad] = 1
+
     return Iq
 
 

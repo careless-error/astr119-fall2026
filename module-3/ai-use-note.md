@@ -10,7 +10,8 @@ Based on easy_corrupt_io_small.png I think there are 5000-6000 bad pixels
  write code that finds pixels with red = 1 and greeen/blue = 0 then prints the number of corrupted pixels without changing the image
         python pixelfixer.py easy_corrupt_io_small.png
         Found 4840 corrupted pixels
-
+now lets paint all identified pixels white
+        
 
 **What I changed by hand:**
 
