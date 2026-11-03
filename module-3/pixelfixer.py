@@ -27,12 +27,6 @@ def pixelfix(I):
     """
     Iq = I.copy()
 
-    ### YOUR WORK GOES HERE (with the agent, under the Protocol, in stages:
-    ### 1. find the bad pixels and print how many;
-    ### 2. paint them white and look at the result;
-    ### 3. replace the white with the average of the up/down/left/right
-    ###    neighbors. Then try solo_corrupt_io_small.png.)
-
     # Stage 1: True where the pixel is pure red (R = 1, G = 0, B = 0) find bad pixels and print how many
     bad = (I[:, :, 0] == 1) & (I[:, :, 1] == 0) & (I[:, :, 2] == 0)
     print(f"Found {bad.sum()} corrupted pixels")
@@ -41,14 +35,21 @@ def pixelfix(I):
     Iq[bad] = 1
 
     # Stage 3: replace each bad pixel with the average of its 4 neighbors
-    #use np.argwhere to get the indices where "bad" is True. then create a loop to build an array of the 4 neighbors for each bad pixel. then take the mean of the neighbors and assign it to the corresponding pixel in Iq. axis=0 calculates 3 separate averages for the R, G, and B channels.
+   #find each bas pixel with np.argwhere and loop through them, for each bad pixel, find its neighbors and average their colors, then replace the bad pixel with the average color. exclude pixels outside the image.
+
+    M, N, _ = I.shape # get the shape of the image
     for row, col in np.argwhere(bad):
-        neighbors = np.array([
-            I[row - 1, col],
-            I[row + 1, col],
-            I[row, col - 1],
-            I[row, col + 1]
-        ])
+        neighbors = []
+        if row > 0:
+            neighbors.append(I[row - 1, col]) #check if pixel is on top edge
+        if row < M - 1:
+            neighbors.append(I[row + 1, col]) #check if pixel is on bottom edge
+        if col > 0:
+            neighbors.append(I[row, col - 1]) #check if pixel is on left edge
+        if col < N - 1:
+            neighbors.append(I[row, col + 1]) #check if pixel is on right edge
+
+        neighbors = np.array(neighbors) #convert the list of neighbors to a numpy array
         Iq[row, col] = neighbors.mean(axis=0)
         
 
